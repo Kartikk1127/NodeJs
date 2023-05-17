@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Kartikk1127/NodeJs#readme",
   "dependencies": {
+    "chalk": "^5.2.0",
     "colors": "^1.4.0",
     "simple-node-logger": "^21.8.12"
   }
