@@ -18,9 +18,13 @@
 // console.log("-->" + __dirname);
 // console.log(__filename);
 
-const http = require('http');
-http.createServer((req, res) => {
-    res.write("Jai shree Ram!");
-    res.end();
-}).listen(4500);
+// const http = require('http');
+// http.createServer((req, res) => {
+//     res.write("Jai shree Ram!");
+//     res.end();
+// }).listen(4500);
 
+
+const Color = require('colors');
+
+console.log("package.json".red);

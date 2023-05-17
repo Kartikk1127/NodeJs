@@ -1,0 +1,28 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "a node js tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kartikk1127/NodeJs.git"
+  },
+  "keywords": [
+    "code",
+    "by",
+    "kartik"
+  ],
+  "author": "Kartik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kartikk1127/NodeJs/issues"
+  },
+  "homepage": "https://github.com/Kartikk1127/NodeJs#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "simple-node-logger": "^21.8.12"
+  }
+}
