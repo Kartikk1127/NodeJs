@@ -1,69 +1,61 @@
-// // // // const app = require('./app');
+// // const http = require('http');
+// // const data = require('./data');
+// // http.createServer((request, response) => {
+// //     response.writeHead(200, { 'Content-Type': 'application\json' });
+// //     response.write(JSON.stringify(data));
+// //     response.end();
+// // }).listen(5000);
 
-// // // // const { default: chalk } = require('chalk');
+// // console.log(process.argv[3])
 
-// // // // var a = 20;
-// // // // var b = 30;
-// // // // var c = 40;
-// // // // console.log(a + b + c);
-// // // // console.log(app.x);
-// // // // console.log(app.z());
+// // const fs = require('fs');
+// // const input = process.argv;
 
-// // // // const arr = [2, 4, 7, 1, 3, 5, 3];
-// // // // let array = arr.filter((item) => {
-// // // //     return item === 3;
-// // // // })
-// // // // console.log(array);
-// // // // import chalk from 'chalk';
-// // // // const fs = require('fs').writeFileSync;
-// // // // fs("helloworld2.txt", "You will do this anytime soon");
-// // // // console.log("-->" + __dirname);
-// // // // console.log(__filename);
+// // if (input[2] == 'add') {
+// //     fs.writeFileSync(input[3], input[4]);
+// // }
+// // else if (input[2] == 'remove') {
+// //     fs.unlinkSync(input[3]);
+// // }
+// // else {
+// //     console.log('invalid input');
+// // }
 
-// // // // const http = require('http');
-// // // // http.createServer((req, res) => {
-// // // //     res.write("Jai shree Ram!");
-// // // //     res.end();
-// // // // }).listen(4500);
+// const fs = require('fs');
+// const path = require('path')
+// // console.log(path);
+// const dirPath = path.join(__dirname, 'files');
+// // console.log(dirPath);
 
+// // for (i = 0; i < 5; i++) {
+// //     fs.writeFileSync(dirPath + `/hello${i}.txt`, 'testing');
+// // }
 
-// // // // const Color = require('colors');
+// fs.readdir(dirPath, (err, files) => {
+//     // console.log(files);
+//     files.forEach((item) => {
+//         console.log(item);
+//         console.log(err);
+//     })
+// })
 
+const fs = require('fs');
+const path = require('path');
+const dirPath = path.join(__dirname, 'crud');
+const filePath = `${dirPath}/apple.txt`;
 
-// // // import('chalk').then((chalk) => {
-// // //     console.log(chalk.backgroundColorNames());
-// // // })
+// fs.writeFileSync(filePath, 'This is a simple text file');
 
-// // // // console.log("package.json".red);
+// fs.readFile(filePath, 'utf8', (error, item) => {
+//     console.log(item);
+// })
 
-// // // // const check = require('chalk')
+// fs.appendFile(filePath, ' and file name is apple.txt', (error) => {
+//     if (!error) console.log("file is updated successfully");
+// })
 
-// // // // console.log(chalk.blue('Hello world!'));
+// fs.rename(filePath, `${dirPath}/fruit.txt`, (err) => {
+//     if (!err) console.log('file name is updated successfully')
+// })
 
-// // // D:\NodeJs\index.js
-// // import('chalk').then((chalk) => {
-// //     // Example usage
-// //     console.log(chalk.blue('This text is blue'));
-// //     console.log(chalk.red.bold('This text is bold and red'));
-// //     console.log(chalk.green('This text is green'));
-
-// //     // Composing styles
-// //     const styledText = chalk.bold.yellow.bgBlue('Bold yellow text on a blue background');
-// //     console.log(styledText);
-
-// //     // Nesting styles
-// //     const nestedStyles = chalk.blue(`This text is blue and ${chalk.underline('underlined')}`);
-// //     console.log(nestedStyles);
-// // }).catch((error) => {
-// //     // Handle any error that occurred during the import
-// //     console.error('Error occurred while importing chalk:', error);
-// // });
-
-
-
-// import chalk from 'chalk';
-
-// const correct = chalk.blue('Hello world');
-// console.log(correct);
-
-console.log("hi, sakshi!")
+fs.unlinkSync(`${dirPath}/fruit.txt`);
