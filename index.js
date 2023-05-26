@@ -11,8 +11,13 @@ app.get("/profile", (req, res) => {
     name: "Kartikey",
     email: "kartikey@gmail.com",
     city: "noida",
+    skills: ["java", "springboot", "database"],
   };
   res.render("profile", { user });
+});
+
+app.get("/login", (_, resp) => {
+  resp.render("login");
 });
 
 app.listen(5000);
