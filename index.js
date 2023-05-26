@@ -1,23 +1,24 @@
 const express = require("express");
-const path = require("path");
 const app = express();
 
-const publicPath = path.join(__dirname, "public");
+const reqFilter = (req, res, next) => {
+  if (!req.query.age) {
+    res.send("Please provide age");
+  } else if (req.query.age < 18) {
+    res.send("You cannot access this page");
+  } else {
+    next();
+  }
+};
 
-app.set("view engine", "ejs");
+app.use(reqFilter);
 
-app.get("/profile", (req, res) => {
-  const user = {
-    name: "Kartikey",
-    email: "kartikey@gmail.com",
-    city: "noida",
-    skills: ["java", "springboot", "database"],
-  };
-  res.render("profile", { user });
+app.get("", (req, res) => {
+  res.send("Welcome to home page");
 });
 
-app.get("/login", (_, resp) => {
-  resp.render("login");
+app.get("/users", (req, res) => {
+  res.send("Welcome to users page");
 });
 
 app.listen(5000);
