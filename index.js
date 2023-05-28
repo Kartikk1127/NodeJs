@@ -1,27 +1,14 @@
-const express = require("express");
-const reqFilter = require("./middleware");
-const app = express();
-const routes = express.Router();
+const { MongoClient } = require("mongodb");
+const url = "mongodb://127.0.0.1:27017";
+const client = new MongoClient(url);
+const database = "bullsurge";
 
-// app.use(reqFilter);
+async function getData() {
+  let result = await client.connect();
+  let db = result.db(database);
+  let collection = db.collection("users");
+  let response = await collection.find({}).toArray();
+  console.log(response);
+}
 
-routes.use(reqFilter);
-app.get("", (req, res) => {
-  res.send("Welcome to home page");
-});
-
-routes.get("/users", (req, res) => {
-  res.send("Welcome to users page");
-});
-
-routes.get("/about", (req, res) => {
-  res.send("Welcome to about page");
-});
-
-routes.get("/contact", (req, res) => {
-  res.send("Welcome to contact page");
-});
-
-app.use("/", routes);
-
-app.listen(5000);
+getData();
